@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CRITICAL FIX: This meta tag ensures the browser scales correctly on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://programocular.com/dashboard.html">
+    <title>Mission Control — Ocular</title>
+<link rel="icon" type="image/png" href="/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/favicon.png?v=2">
+ <link href="output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons (Optional fallback for SVG icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { background-color: #050505; color: #F3F3F3; }</style>
+</head>
+<body class="antialiased" onload="loadProjectData()">
+
+    <!-- Top Bar: Adjusted padding for mobile (px-4) vs desktop (md:px-8) -->
+    <nav class="w-full py-4 md:py-6 px-4 md:px-8 border-b border-white/10 flex justify-between items-center bg-[#050505]">
+        <div class="flex items-center gap-2 md:gap-4">
+            <a href="index.html" class="font-black text-lg md:text-xl tracking-tighter">OCULAR.</a>
+            <!-- Hidden on very small screens, shown on small and up -->
+            <span class="hidden sm:inline-block text-xs font-mono text-green-500 border border-green-500/30 bg-green-500/10 px-2 py-1 rounded">SECURE CONNECTION ESTABLISHED</span>
+            <!-- Mobile only secure indicator -->
+            <div class="sm:hidden w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        </div>
+        <a href="index.html" class="text-xs font-mono text-gray-500 hover:text-white transition-colors">LOGOUT [X]</a>
+    </nav>
+
+    <!-- Main Container: Adjusted padding for mobile -->
+    <div class="p-4 md:p-8 max-w-7xl mx-auto">
+        
+        <!-- Project Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 pb-8 border-b border-white/10 gap-6 md:gap-0">
+            <div>
+                <span id="project-id-display" class="font-mono text-xs text-gray-500 mb-2 block">LOADING ID...</span>
+                <!-- Text size adjusts automatically -->
+                <h1 id="project-title" class="text-3xl md:text-4xl lg:text-6xl font-black tracking-tighter text-white leading-tight">Loading Mission...</h1>
+            </div>
+            <div class="text-left md:text-right w-full md:w-auto">
+                <p class="text-sm text-gray-400">CURRENT STATUS</p>
+                <p id="status-text" class="text-xl md:text-2xl font-bold text-white">Authenticating...</p>
+                <div class="w-full md:w-64 bg-gray-800 h-2 mt-2 rounded-full overflow-hidden md:ml-auto">
+                    <div id="progress-bar" class="bg-white h-full w-[0%] transition-all duration-1000"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Column 1: Deliverables & Timeline -->
+            <div class="lg:col-span-2 space-y-8">
+                
+                <!-- Timeline -->
+                <div class="bg-[#121212] border border-white/10 rounded-xl p-6 md:p-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Mission Timeline</h3>
+                    <div class="relative border-l border-white/10 ml-2 space-y-8">
+                        
+                        <!-- Step 1 -->
+                        <div class="pl-8 relative" id="step-1">
+                            <div class="indicator absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-700 rounded-full"></div>
+                            <p class="status-label text-xs font-mono text-gray-600 mb-1">PENDING</p>
+                            <h4 class="font-bold text-lg">Strategy & Discovery</h4>
+                            <p class="text-sm text-gray-500">Market analysis and competitor vectors.</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="pl-8 relative" id="step-2">
+                            <div class="indicator absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-700 rounded-full"></div>
+                            <p class="status-label text-xs font-mono text-gray-600 mb-1">PENDING</p>
+                            <h4 class="font-bold text-lg">Visual System Design</h4>
+                            <p class="text-sm text-gray-500">High-fidelity mockups and prototypes.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="pl-8 relative" id="step-3">
+                            <div class="indicator absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-700 rounded-full"></div>
+                            <p class="status-label text-xs font-mono text-gray-600 mb-1">PENDING</p>
+                            <h4 class="font-bold text-lg">Final Deployment</h4>
+                            <p class="text-sm text-gray-500">Server migration and launch sequence.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Assets Box -->
+                <div class="bg-[#121212] border border-white/10 rounded-xl p-6 md:p-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Project Files</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 border border-white/5 rounded hover:bg-white/5 transition cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded flex items-center justify-center font-mono text-xs text-white">PDF</div>
+                                <div class="overflow-hidden">
+                                    <p class="font-bold text-sm truncate">Contract_Agreement.pdf</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono border border-white/20 px-3 py-1 rounded hover:bg-white hover:text-black transition whitespace-nowrap ml-2">DOWNLOAD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Team -->
+            <div class="lg:col-span-1">
+                <div class="bg-[#121212] border border-white/10 rounded-xl p-6 md:p-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Active Operatives</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <!-- SVG Placeholder to match the uploaded image style -->
+                            <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden shrink-0 flex items-center justify-center relative">
+                                <svg class="absolute w-12 h-12 text-gray-400 -bottom-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Alex Mercer</p>
+                                <p class="text-xs text-gray-500 font-mono">LEAD STRATEGIST</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <!-- SVG Placeholder to match the uploaded image style -->
+                            <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden shrink-0 flex items-center justify-center relative">
+                                <svg class="absolute w-12 h-12 text-gray-400 -bottom-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Sarah Chen</p>
+                                <p class="text-xs text-gray-500 font-mono">PRODUCT DESIGN</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-white/5">
+                        <a href="mailto:julien@programocular.com" class="block w-full bg-white text-black font-bold py-3 rounded hover:bg-gray-200 transition text-sm text-center">
+                            Contact Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONFIGURATION SCRIPT -->
+    <script>
+        function loadProjectData() {
+            // 1. Get the ID from Login
+            const projectId = localStorage.getItem('ocular_client_id') || "OC-2025";
+            
+            // 2. YOUR CLIENT DATA (EDIT THIS TO CHANGE STATUSES)
+            const projectData = {
+                "OC-2025": {
+                    title: "Project Velocity",
+                    status: "Phase 2: Development",
+                    progress: "65%",
+                    steps: ["complete", "active", "pending"] // 1, 2, 3
+                },
+                "NEBULA": {
+                    title: "Nebula Identity System",
+                    status: "Phase 1: Strategy",
+                    progress: "25%",
+                    steps: ["active", "pending", "pending"]
+                },
+                "CALYPSO": {
+                    title: "Calypso Digital Ops",
+                    status: "Phase 3: Launch Prep",
+                    progress: "90%",
+                    steps: ["complete", "complete", "active"]
+                },
+                "VIP": {
+                    title: "Confidential Project",
+                    status: "Awaiting Input",
+                    progress: "5%",
+                    steps: ["active", "pending", "pending"]
+                }
+            };
+
+            // 3. Load Data
+            const data = projectData[projectId] || projectData["OC-2025"];
+
+            // Update Text
+            document.getElementById('project-id-display').innerText = "PROJECT ID: " + projectId;
+            document.getElementById('project-title').innerText = data.title;
+            document.getElementById('status-text').innerText = data.status;
+            document.getElementById('progress-bar').style.width = data.progress;
+
+            // Update Timeline Visuals
+            updateStep('step-1', data.steps[0]);
+            updateStep('step-2', data.steps[1]);
+            updateStep('step-3', data.steps[2]);
+        }
+
+        function updateStep(elementId, state) {
+            const el = document.getElementById(elementId);
+            const indicator = el.querySelector('.indicator');
+            const label = el.querySelector('.status-label');
+            const title = el.querySelector('h4');
+
+            // Reset classes
+            indicator.className = "indicator absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full";
+            
+            if (state === 'complete') {
+                indicator.classList.add('bg-green-500');
+                label.classList.add('text-green-500');
+                label.innerText = "COMPLETED";
+                title.classList.add('text-white');
+            } else if (state === 'active') {
+                indicator.classList.add('bg-white', 'animate-pulse');
+                label.classList.add('text-white');
+                label.innerText = "IN PROGRESS";
+                title.classList.add('text-white');
+            } else {
+                indicator.classList.add('bg-gray-700');
+                label.innerText = "UPCOMING";
+                title.classList.add('text-gray-500');
+            }
+        }
+    </script>
+
+</body>
+</html>

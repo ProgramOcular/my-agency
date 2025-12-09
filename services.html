@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 1. CANONICAL TAG (ALREADY ADDED) -->
+    <link rel="canonical" href="https://programocular.com/services.html">
+
+    <!-- 2. PRIMARY META DESCRIPTION (CRITICAL FOR GOOGLE CLICKS) -->
+    <meta name="description" content="Ocular provides high-end digital services including UI/UX design, web development, branding, and social strategy. We bridge the gap between creative vision and technical reality.">
+
+    <!-- 3. OPEN GRAPH / SOCIAL MEDIA TAGS (MAKES SHARING LOOK GOOD) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://programocular.com/services.html">
+    <meta property="og:title" content="Services — Ocular">
+    <meta property="og:description" content="Explore our suite of digital services: UI/UX, Branding, Development, and Strategy.">
+    <!-- Replace this with a real link to a 1200x630px image for best results -->
+    <meta property="og:image" content="https://programocular.com/nebula.jpeg"> 
+
+    <!-- Twitter Specific Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://programocular.com/services.html">
+    <meta name="twitter:title" content="Services — Ocular">
+    <meta name="twitter:description" content="Explore our suite of digital services: UI/UX, Branding, Development, and Strategy.">
+    <meta name="twitter:image" content="https://programocular.com/nebula.jpeg">
+    
+    <title>Services — Ocular</title>
+    <link rel="icon" type="image/png" href="/favicon.png?v=2">
+    <link rel="apple-touch-icon" href="/favicon.png?v=2">
+ <link href="output.css" rel="stylesheet"> </link>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+    
+    <!-- 4. SCHEMA MARKUP (HELPS GOOGLE UNDERSTAND YOUR BUSINESS) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Ocular",
+      "url": "https://programocular.com",
+      "logo": "https://programocular.com/favicon.png",
+      "sameAs": [
+        "https://x.com/programocular",
+        "https://www.linkedin.com/company/programocular",
+        "https://instagram.com/programocular"
+      ],
+      "description": "We bridge the gap between creative vision and technical reality. Our suite of services covers the entire digital lifecycle."
+    }
+    </script>
+
+       <style>
+        body { background-color: #050505; color: #F3F3F3; }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .service-card {
+            background: rgba(30, 30, 30, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            background: rgba(30, 30, 30, 0.6);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Filter Button Active State */
+        .filter-btn.active {
+            background-color: #FFFFFF;
+            color: #000000;
+            border-color: #FFFFFF;
+        }
+
+        /* ANIMATED BACKGROUND CANVAS */
+        #ocular-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* SLEEK PAGE TRANSITION SETTINGS */
+        body {
+            opacity: 0; /* Start completely invisible */
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth ease curve */
+        }
+        
+        /* This class is added by JS when the page is ready */
+        body.page-loaded {
+            opacity: 1;
+        }
+
+        /* --- NEW SCROLL REVEAL ANIMATIONS --- */
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Elegant ease-out */
+            will-change: opacity, transform;
+        }
+
+        .reveal-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specific delay utilities for staggered looks if JS doesn't catch them */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <!-- THE ANIMATED CANVAS BACKGROUND -->
+    <canvas id="ocular-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="glass-panel mx-auto max-w-7xl px-6 py-4 mt-0 md:mt-4 md:rounded-2xl flex justify-between items-center">
+            <a href="index.html" class="z-50 flex items-center">
+                <svg class="h-8 w-auto" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="45" fill="#FFFFFF" style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -0.05em;">OCULAR<tspan fill="#888888">.</tspan></text>
+                </svg>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium text-text-muted">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="services.html" class="text-white">Services</a> <!-- Active Link -->
+               <a href="our-team.html" class="hover:text-white transition-colors">Our Team</a>
+                <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+                <!-- NEW LOGIN LINK -->
+                <a href="login.html" class="hover:text-white transition-colors duration-300 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Login
+                </a>
+                <a href="contact-us.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-all font-semibold">Contact Us</a>
+            </div>
+            
+             <!-- Mobile Menu Button -->
+             <button class="md:hidden z-50 text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-background p-8 flex flex-col justify-center items-center space-y-8 md:hidden">
+            <a href="index.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="services.html" class="text-2xl font-bold text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a href="our-team.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Team</a>
+            <a href="pricing.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
+            <a href="login.html" class="text-2xl font-light flex items-center gap-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Client Login
+            </a>
+            <a href="contact-us.html" class="text-2xl font-bold border-b-2 border-white pb-1" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- TITLE & SERVICES SECTION -->
+    <section class="pt-40 pb-20 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Text -->
+            <div class="text-center mb-20 max-w-3xl mx-auto">
+                <h1 class="reveal-text text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Deliverables</h1>
+                <p class="reveal-text text-lg md:text-xl text-text-muted leading-relaxed" style="transition-delay: 100ms;">
+                    We bridge the gap between creative vision and technical reality. Our suite of services covers the entire digital lifecycle, from abstraction to execution.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <!-- Note: JS will automatically stagger these children -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24 stagger-container">
+                
+                <!-- Service 1: UI/UX -->
+                <div class="reveal-text service-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">UI/UX Design</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        User-centric interfaces that feel intuitive and look exceptional. We design high-fidelity prototypes and design systems that scale.
+                    </p>
+                </div>
+
+                <!-- Service 2: Branding -->
+                <div class="reveal-text service-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Brand Identity</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        Crafting distinct visual languages. From logos to comprehensive brand guidelines, we ensure your voice cuts through the noise.
+                    </p>
+                </div>
+
+                <!-- Service 3: Development -->
+                <div class="reveal-text service-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web Development</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        Robust, high-performance websites built on modern stacks. We specialize in creative coding, seamless animations, and solid architecture.
+                    </p>
+                </div>
+
+                <!-- Service 4: Social Media -->
+                <div class="reveal-text service-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Social Strategy</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        Data-driven content strategies that build community. We manage presence across platforms to drive engagement and growth.
+                    </p>
+                </div>
+
+                <!-- Service 5: Editorial -->
+                <div class="reveal-text service-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Editorial Design</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        Layouts that breathe. Whether digital or print, we structure content for maximum readability and visual impact.
+                    </p>
+                </div>
+
+                <!-- Service 6: Motion -->
+                <div class="reveal-text service-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Motion & 3D</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        Adding depth and life to static assets. We create 3D visualizations and motion graphics that tell a story without words.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="reveal-text w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-20"></div>
+
+            <!-- SELECTED WORKS HEADER -->
+            <div class="reveal-text text-center mb-10">
+                <!-- UPDATED: H2 instead of H3 for better SEO Hierarchy -->
+                <h2 class="text-2xl font-bold text-white mb-2">Selected Works</h2>
+                <p class="text-sm text-text-muted">Recent projects across our capabilities.</p>
+                
+                <!-- Filter Controls -->
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <button onclick="filterSelection('all')" class="filter-btn active px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:border-white transition-all duration-300">All Systems</button>
+                    <button onclick="filterSelection('ui-ux')" class="filter-btn px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:border-white transition-all duration-300">UI/UX</button>
+                    <button onclick="filterSelection('Social Media')" class="filter-btn px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:border-white transition-all duration-300">Social Media</button>
+                    <button onclick="filterSelection('branding')" class="filter-btn px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:border-white transition-all duration-300">Branding</button>
+                    <button onclick="filterSelection('editorial')" class="filter-btn px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:border-white transition-all duration-300">Editorial</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-32 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container" id="project-grid">
+          
+           
+             <!-- Project 1: UI/UX (LINKED TO APEX PAGE) -->
+            <a href="apex.html" class="reveal-text project-card group cursor-pointer block" data-category="ui-ux">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4">
+                    <!-- ADDED LOADING=LAZY -->
+                    <img loading="lazy" src="nebula.jpeg" alt="Apex" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition duration-500" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/1E1E1E/FFFFFF?text=Apex+Preview'">
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">UI/UX</span>
+                        <h3 class="text-xl font-bold text-white">Apex</h3>
+                    </div>
+                </div>
+            </a>
+
+             <!-- Project 2: Branding (LINKED TO NEBULA PAGE) -->
+            <a href="nebula.html" class="reveal-text project-card group cursor-pointer block" data-category="branding">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4 border border-white/5">
+                    <!-- ADDED LOADING=LAZY -->
+                    <img loading="lazy" src="nebula.jpeg" alt="Nebula Branding" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition duration-500" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/1E1E1E/FFFFFF?text=Nebula+Preview'">
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">Branding</span>
+                        <h3 class="text-xl font-bold text-white">Nebula Identity</h3>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 7: Social Media -->
+            <a href="rainbow-concrete.html" class="reveal-text project-card group cursor-pointer block" data-category="Social Media">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4 border border-white/5">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition duration-500 bg-purple-900/20">
+                        <div class="w-20 h-20 rounded-full border border-white"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">Social Media</span>
+                        <h3 class="text-xl font-bold text-white">Rainbow Concrete</h3>
+                    </div>
+                </div>
+            </a>
+
+               <!-- Project 3: Editorial -->
+            <a href="hype.html" class="reveal-text project-card group cursor-pointer block" data-category="editorial">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4 border border-white/5">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition duration-500 bg-red-900/20">
+                        <div class="w-1/2 h-full border-r border-white/30"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">Editorial</span>
+                        <h3 class="text-xl font-bold text-white">Hype</h3>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 4: UI/UX -->
+            <div class="reveal-text project-card group cursor-pointer" data-category="ui-ux">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4 border border-white/5">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition duration-500 bg-cyan-900/20">
+                        <div class="w-full h-2 bg-white/30 rotate-45"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">UI/UX</span>
+                        <h3 class="text-xl font-bold text-white">Flow Finance App</h3>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Project 5: Editorial -->
+             <div class="reveal-text project-card group cursor-pointer" data-category="editorial">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4 border border-white/5">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition duration-500 bg-green-900/20">
+                        <div class="w-32 h-40 border border-white"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">Editorial</span>
+                        <h3 class="text-xl font-bold text-white">Type Specimen 04</h3>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Project 6: Branding -->
+             <div class="reveal-text project-card group cursor-pointer" data-category="branding">
+                <div class="aspect-[4/3] bg-surface-highlight rounded-xl overflow-hidden relative mb-4 border border-white/5">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition duration-500 bg-orange-900/20">
+                        <div class="w-20 h-20 border-2 border-white rotate-12"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-1 block">Branding</span>
+                        <h3 class="text-xl font-bold text-white">Helion Systems</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <!-- Brand Col (Span 4) -->
+                <div class="md:col-span-4 space-y-6 reveal-text">
+                    <a href="#" class="text-2xl font-black tracking-tight">OCULAR.</a>
+                    <p class="text-text-muted text-sm leading-relaxed max-w-sm">
+                        Forging immersive digital experiences for the next generation of industry leaders. We design the future, today.
+                    </p>
+                    <!-- System Status Indicator -->
+                    <div class="inline-flex items-center gap-2 border border-white/10 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors cursor-default">
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-[10px] font-mono text-white/70 tracking-wider">SYSTEM ONLINE</span>
+                    </div>
+                </div>
+
+                <!-- Nav Col (Span 2) -->
+                <div class="md:col-span-2 reveal-text">
+                    <h4 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Explore</h4>
+                    <ul class="space-y-4 text-sm font-medium text-text-muted">
+                        <li><a href="index.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Services</a></li>
+                        <li><a href="our-team.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Our Team</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal/Social Col (Span 2) -->
+                <div class="md:col-span-2 reveal-text">
+                    <h4 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Connect</h4>
+                    <ul class="space-y-4 text-sm font-medium text-text-muted">
+                        <li><a href="https://x.com/programocular" target="_blank" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">X (Twitter)</a></li>
+                        <li><a href="https://www.linkedin.com/company/programocular" target="_blank" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">LinkedIn</a></li>
+                        <li><a href="https://instagram.com/programocular" target="_blank" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Instagram</a></li>
+                        <li><a href="contact-us.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info/Top (Span 4) -->
+                <div class="md:col-span-4 flex flex-col justify-between reveal-text">
+                    <div>
+                         <h4 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Direct Line</h4>
+                         <ul class="space-y-4 text-sm font-medium text-text-muted">
+                            <li>
+                                <a href="mailto:julien@programocular.com" class="hover:text-white transition-colors flex items-center gap-3 group">
+                                    <svg class="w-4 h-4 text-white/50 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    julien@programocular.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:6138087357" class="hover:text-white transition-colors flex items-center gap-3 group">
+                                     <svg class="w-4 h-4 text-white/50 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                    613-808-7357
+                                </a>
+                            </li>
+                         </ul>
+                    </div>
+                    
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hidden md:flex items-center gap-2 text-xs font-mono text-text-muted hover:text-white transition-colors mt-auto pt-8 self-end">
+                        RETURN TO SURFACE
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-text-muted">
+                <p>&copy; 2025 Program Ocular. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="brand.html" class="hover:text-white transition-colors">Press Kit</a>
+                    <a href="legal.html" class="hover:text-white transition-colors">Legal</a>
+ <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Filter Logic Script -->
+    <script>
+        function filterSelection(category) {
+            var x, i;
+            x = document.getElementsByClassName("project-card");
+            
+            // 1. Manage Active Button State
+            var btns = document.getElementsByClassName("filter-btn");
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].classList.remove("active");
+                if (btns[j].getAttribute("onclick").includes(category)) {
+                    btns[j].classList.add("active");
+                }
+            }
+
+            // 2. Show/Hide Projects with Fade Animation
+            for (i = 0; i < x.length; i++) {
+                // Remove existing classes
+                x[i].classList.remove("hidden", "animate-fade-in-up");
+                
+                if (category == "all") {
+                    x[i].classList.add("animate-fade-in-up");
+                } else {
+                    if (x[i].getAttribute("data-category") == category) {
+                        x[i].classList.add("animate-fade-in-up");
+                    } else {
+                        x[i].classList.add("hidden");
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- UPDATED SCRIPT: Fixes the "Back Button" Black Screen Issue -->
+    <script>
+        // 1. Handle Page Visibility (Works for Back Button & Fresh Loads)
+        window.addEventListener('pageshow', (event) => {
+            // Add the class to fade in, even if coming from browser cache
+            setTimeout(() => {
+                document.body.classList.add('page-loaded');
+            }, 50);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 2. Intercept Link Clicks for Fade-Out
+            const links = document.querySelectorAll('a');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+
+                    // Logic to skip animation for:
+                    // - Anchors (#)
+                    // - New tabs (_blank)
+                    // - Email links (mailto:)
+                    // - JavaScript calls
+                    if (!href || href.startsWith('#') || link.target === '_blank' || href.startsWith('mailto:') || href.startsWith('javascript:')) {
+                        return;
+                    }
+
+                    // Prevent instant navigation
+                    e.preventDefault();
+
+                    // Trigger Fade-Out
+                    document.body.classList.remove('page-loaded');
+
+                    // Wait for animation, then go
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 600); 
+                });
+            });
+        });
+    </script>
+
+    <!-- OCULAR BACKGROUND ANIMATION -->
+    <script>
+        const canvas = document.getElementById('ocular-bg');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+
+        // Configuration for the "Ocular Bokeh" effect
+        const particleCount = 25; // Number of floating orbs
+        const baseSpeed = 0.15;   // Very slow drift
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+                // Randomize starting position to fill screen
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.radius = Math.random() * 150 + 50; // Large soft orbs
+                this.vx = (Math.random() - 0.5) * baseSpeed;
+                this.vy = (Math.random() - 0.5) * baseSpeed;
+                this.opacity = Math.random() * 0.05 + 0.01; // Very faint (0.01 to 0.06)
+                this.growth = (Math.random() - 0.5) * 0.05; // Slowly pulse size
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.radius += this.growth;
+
+                // Bounce off edges (or wrap around - wrapping looks smoother for background)
+                if (this.x < -this.radius) this.x = width + this.radius;
+                if (this.x > width + this.radius) this.x = -this.radius;
+                if (this.y < -this.radius) this.y = height + this.radius;
+                if (this.y > height + this.radius) this.y = -this.radius;
+
+                // Keep radius within bounds
+                if (this.radius > 250 || this.radius < 30) this.growth *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                // Create radial gradient for soft bokeh effect
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+                
+                // Core color (very faint white/blue tint)
+                gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+                
+                // Edge color (fade to transparent)
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                ctx.fillStyle = gradient;
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            animate();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Optional: Draw a very faint scanline or grid here if desired, 
+            // but for "Ocular" clean bokeh is better.
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        init();
+    </script>
+    
+    <!-- NEW SCROLL OBSERVER SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all elements that need to be revealed
+            const revealElements = document.querySelectorAll('.reveal-text');
+            
+            // Intersection Observer configuration
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of element is visible
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+            
+            revealElements.forEach(el => observer.observe(el));
+            
+            // AUTOMATIC STAGGERING FOR GRIDS
+            // This finds grid containers and assigns progressively longer delays to their children
+            const staggerContainers = document.querySelectorAll('.stagger-container');
+            
+            staggerContainers.forEach(container => {
+                const children = container.querySelectorAll('.reveal-text');
+                children.forEach((child, index) => {
+                    // Stagger by 100ms per item, reset every 3 items (for 3-col grids)
+                    // Or continuous flow? Let's do continuous for small lists, modulo for long ones
+                    const delay = (index % 3) * 100; // 0ms, 100ms, 200ms, 0ms...
+                    child.style.transitionDelay = `${delay}ms`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

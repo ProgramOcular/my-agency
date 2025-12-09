@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://programocular.com/rainbow-concrete.html">
+    <title>Orbit Systems — Case Study</title>
+   <link rel="icon" type="image/png" href="/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/favicon.png?v=2">
+ <link href="output.css" rel="stylesheet"> </link>   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+    
+       <style>
+        body { background-color: #050505; color: #F3F3F3; }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+<style>
+    /* ... keep your existing styles ... */
+
+    /* SLEEK PAGE TRANSITION SETTINGS */
+    body {
+        opacity: 0; /* Start completely invisible */
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth ease curve */
+    }
+    
+    /* This class is added by JS when the page is ready */
+    body.page-loaded {
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="glass-panel mx-auto max-w-7xl px-6 py-4 mt-0 md:mt-4 md:rounded-2xl flex justify-between items-center">
+            <a href="index.html" class="z-50 flex items-center">
+                <svg class="h-8 w-auto" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="45" fill="#FFFFFF" style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -0.05em;">OCULAR<tspan fill="#888888">.</tspan></text>
+                </svg>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium text-text-muted">
+                  <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="services.html" class="text-white">Services</a>
+                <a href="our-team.html" class="hover:text-white transition-colors">Our Team</a>
+                <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+
+   <!-- Login Link -->
+                <a href="login.html" class="hover:text-white transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Login
+                </a>
+                <a href="contact-us.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-all font-semibold">Contact Us</a>
+             <!-- Mobile Menu Button -->
+             <button class="md:hidden z-50 text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-background p-8 flex flex-col justify-center items-center space-y-8 md:hidden">
+            <a href="index.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="work.html" class="text-2xl font-bold text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Capabilities</a>
+            <a href="services.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a href="our-team.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Team</a>
+            <a href="index.html#contact" class="text-2xl font-bold border-b-2 border-white pb-1" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Initiate Project</a>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="pt-40 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <a href="services.html" class="inline-flex items-center text-xs font-mono uppercase tracking-widest text-text-muted mb-8 hover:text-white transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back
+            </a>
+            <h1 class="text-5xl md:text-8xl font-black tracking-tighter text-white mb-6">Orbit Systems UI</h1>
+            <p class="text-xl md:text-2xl text-text-muted max-w-3xl font-light leading-relaxed">
+                Redefining the flight telemetry interface for the next generation of commercial aerospace transport.
+            </p>
+        </div>
+    </section>
+
+    <!-- Project Metadata Grid -->
+    <section class="px-6 pb-20">
+        <div class="max-w-7xl mx-auto border-t border-b border-white/10 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-widest text-text-muted mb-2">Client</h4>
+                    <p class="text-white font-medium">Aerospatiale Inc.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-widest text-text-muted mb-2">Timeline</h4>
+                    <p class="text-white font-medium">Q3 2024 — Q1 2025</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-widest text-text-muted mb-2">Services</h4>
+                    <p class="text-white font-medium">UI/UX, Design System</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-widest text-text-muted mb-2">Live Link</h4>
+                    <a href="#" class="text-white font-medium hover:underline">orbit.systems ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Image -->
+    <section class="px-6 pb-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="aspect-video bg-surface-highlight rounded-2xl border border-white/5 overflow-hidden relative">
+                <!-- Replace src with your large project image -->
+                <img src="https://via.placeholder.com/1920x1080" alt="Orbit Dashboard Hero" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Narrative: Challenge -->
+    <section class="px-6 py-20">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6">The Challenge</h2>
+            <p class="text-text-muted leading-loose text-lg mb-6">
+                Legacy aerospace interfaces are notoriously cluttered, relying on outdated paradigms that increase cognitive load for pilots. Orbit Systems approached Ocular with a singular directive: reduce reaction time through design.
+            </p>
+            <p class="text-text-muted leading-loose text-lg">
+                We needed to engineer a system that could parse millions of data points—altitude, trajectory, fuel consumption—into a visual language that was instantly readable at Mach 2.
+            </p>
+        </div>
+    </section>
+
+    <!-- Image Grid -->
+    <section class="px-6 py-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="aspect-[4/3] bg-surface-highlight rounded-xl border border-white/5 overflow-hidden">
+                <img src="https://via.placeholder.com/800x600" alt="Detail View 1" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500">
+            </div>
+            <div class="aspect-[4/3] bg-surface-highlight rounded-xl border border-white/5 overflow-hidden">
+                <img src="https://via.placeholder.com/800x600" alt="Detail View 2" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Narrative: Solution -->
+    <section class="px-6 py-20">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6">The Solution</h2>
+            <p class="text-text-muted leading-loose text-lg">
+                We developed "Zero-Point," a design system based on absolute minimalism. By utilizing variable font weights and a dynamic color-warning system, we created a hierarchy where information only appears when it is critical.
+            </p>
+        </div>
+    </section>
+
+    <!-- Full Width Footer Image -->
+    <section class="px-6 pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="aspect-[21/9] bg-surface-highlight rounded-2xl border border-white/5 overflow-hidden">
+                <img src="https://via.placeholder.com/1920x800" alt="Mobile Responsiveness" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW IMPROVED Footer -->
+    <footer class="bg-surface border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <!-- Brand Col (Span 4) -->
+                <div class="md:col-span-4 space-y-6">
+                    <a href="#" class="text-2xl font-black tracking-tight">OCULAR.</a>
+                    <p class="text-text-muted text-sm leading-relaxed max-w-sm">
+                        Forging immersive digital experiences for the next generation of industry leaders. We design the future, today.
+                    </p>
+                    <!-- System Status Indicator -->
+                    <div class="inline-flex items-center gap-2 border border-white/10 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors cursor-default">
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-[10px] font-mono text-white/70 tracking-wider">SYSTEM ONLINE</span>
+                    </div>
+                </div>
+
+                <!-- Nav Col (Span 2) -->
+                <div class="md:col-span-2">
+                    <h4 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Explore</h4>
+                    <ul class="space-y-4 text-sm font-medium text-text-muted">
+                        <li><a href="index.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Services</a></li>
+                        <li><a href="our-team.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Our Team</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal/Social Col (Span 2) -->
+                <div class="md:col-span-2">
+                    <h4 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Connect</h4>
+                    <ul class="space-y-4 text-sm font-medium text-text-muted">
+                        <li><a href="https://x.com/programocular" target="_blank" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">X (Twitter)</a></li>
+                        <li><a href="https://www.linkedin.com/company/programocular" target="_blank" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">LinkedIn</a></li>
+                        <li><a href="https://instagram.com/programocular" target="_blank" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Instagram</a></li>
+                        <li><a href="contact-us.html" class="hover:text-white transition-colors block transform hover:translate-x-1 duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info/Top (Span 4) -->
+                <div class="md:col-span-4 flex flex-col justify-between">
+                    <div>
+                         <h4 class="font-mono text-xs uppercase tracking-widest text-white/50 mb-6">Direct Line</h4>
+                         <ul class="space-y-4 text-sm font-medium text-text-muted">
+                            <li>
+                                <a href="mailto:julien@programocular.com" class="hover:text-white transition-colors flex items-center gap-3 group">
+                                    <svg class="w-4 h-4 text-white/50 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    julien@programocular.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:6138087357" class="hover:text-white transition-colors flex items-center gap-3 group">
+                                     <svg class="w-4 h-4 text-white/50 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                    613-808-7357
+                                </a>
+                            </li>
+                         </ul>
+                    </div>
+                    
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hidden md:flex items-center gap-2 text-xs font-mono text-text-muted hover:text-white transition-colors mt-auto pt-8 self-end">
+                        RETURN TO SURFACE
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-text-muted">
+                <p>&copy; 2025 Program Ocular. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="brand.html" class="hover:text-white transition-colors">Press Kit</a>
+                    <a href="legal.html" class="hover:text-white transition-colors">Legal</a>
+  <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Trigger the Fade-In effect immediately on load
+        // Uses a small timeout to ensure the DOM is ready for the transition
+        setTimeout(() => {
+            document.body.classList.add('page-loaded');
+        }, 50);
+
+        // 2. Intercept Link Clicks for the Fade-Out effect
+        const links = document.querySelectorAll('a');
+        
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+
+                // Logic to skip the animation for:
+                // - Anchor links on the same page (start with '#')
+                // - Links opening in new tabs (target="_blank")
+                // - Empty links
+                if (!href || href.startsWith('#') || link.target === '_blank') {
+                    return;
+                }
+
+                // Prevent instant navigation
+                e.preventDefault();
+
+                // Trigger Fade-Out
+                document.body.classList.remove('page-loaded');
+
+                // Wait for the animation (600ms) to finish, then navigate
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600); 
+            });
+        });
+    });
+</script>
+</body>
+</html>

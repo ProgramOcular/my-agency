@@ -1,0 +1,12 @@
+{
+  "name": "ocular-design-agency",
+  "version": "2.0.0",
+  "description": "Ocular Design Agency Website",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

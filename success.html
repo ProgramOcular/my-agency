@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://programocular.com/success.html">
+    <title>Transmission Received — Ocular</title>
+    <link rel="icon" type="image/png" href="/favicon.png?v=2">
+    <link rel="apple-touch-icon" href="/favicon.png?v=2">
+    <!-- Note: Assuming dist/output.css contains Tailwind base/components/utilities. 
+         If not, you might need the CDN link for development: 
+         <script src="https://cdn.tailwindcss.com"></script> -->
+ <link href="output.css" rel="stylesheet"> </link>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #F3F3F3; 
+        }
+        /* Subtle grid background pattern */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        /* Utility for balanced text to avoid orphans */
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        /* --- ANIMATIONS RESTORED --- */
+        
+        /* 1. Fade In Up Animation (for the main container) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* 2. SVG Line Drawing Animation (for the checkmark) */
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        .animate-draw {
+            animation: draw 1s ease-out forwards 0.3s; /* 0.3s delay */
+        }
+    </style>
+</head>
+<body class="antialiased flex items-center justify-center min-h-screen text-center px-6 relative overflow-hidden bg-background">
+
+    <!-- Decorative Background Elements -->
+    <div class="absolute inset-0 bg-grid pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.03)_0%,_rgba(5,5,5,1)_70%)] pointer-events-none"></div>
+
+    <!-- Top Left & Bottom Right Corner Accents -->
+    <div class="absolute top-8 left-8 w-16 h-16 border-l border-t border-white/20 rounded-tl-sm opacity-50"></div>
+    <div class="absolute bottom-8 right-8 w-16 h-16 border-r border-b border-white/20 rounded-br-sm opacity-50"></div>
+
+    <div class="max-w-2xl mx-auto relative z-10 opacity-0 animate-fade-in-up">
+        
+        <!-- Animated Icon Container -->
+        <div class="mb-10 inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/5 border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.05)] backdrop-blur-sm">
+            <!-- The checkmark SVG -->
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- stroke-dasharray and offset create the "invisible line" that the animation draws -->
+                <path class="animate-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" stroke-dasharray="100" stroke-dashoffset="100"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70">
+            Transmission Received.
+        </h1>
+
+        <!-- Tech/Data Decorator -->
+        <div class="flex items-center justify-center gap-3 mb-8 text-xs font-mono text-text-muted uppercase tracking-widest opacity-80">
+            <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+            <span>Uplink Established</span>
+            <span class="text-white/20">|</span>
+            <span>ID: <span id="ref-id">TX-99</span></span>
+        </div>
+        
+        <p class="text-lg md:text-xl text-text-muted font-light leading-relaxed mb-12 max-w-lg mx-auto text-balance">
+            Your mission brief has been successfully logged in our secure database. Our team is analyzing the variables&nbsp;now.
+        </p>
+        
+        <!-- Enhanced Button -->
+        <a href="index.html" class="group relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-300 ease-in-out bg-white/5 border border-white/10 rounded-lg hover:bg-white hover:text-black hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#050505]">
+            <span class="mr-2">Return to Base</span>
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        // Simple random ID generator for "flavor"
+        document.getElementById('ref-id').innerText = 'TX-' + Math.floor(Math.random() * 9000 + 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Lost — Ocular</title>
+    <link rel="icon" type="image/png" href="/favicon.png?v=2">
+    <link rel="apple-touch-icon" href="/favicon.png?v=2">
+ <link href="output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+       <style>
+        body { 
+            background-color: #050505; 
+            color: #F3F3F3; 
+        }
+
+        /* Ambient Grid with Radial Fade - Subtle & Clean */
+        .bg-grid {
+            background-image: linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="antialiased flex items-center justify-center min-h-screen text-center px-6 relative overflow-hidden">
+
+    <!-- Ambient Background Layer -->
+    <div class="fixed inset-0 bg-grid opacity-20 pointer-events-none"></div>
+
+    <!-- Main Content -->
+    <div class="max-w-2xl mx-auto relative z-10 flex flex-col items-center">
+        
+        <!-- Status Icon (Static/Subtle Pulse) -->
+        <div class="mb-8 p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm animate-pulse-slow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+            </svg>
+        </div>
+
+        <!-- Clean, Large 404 -->
+        <h1 class="text-[10rem] leading-none font-black tracking-tighter mb-2 text-white/5 select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+            404
+        </h1>
+
+        <h2 class="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight relative">
+            Signal Lost<span class="text-brand-accent">.</span>
+        </h2>
+        
+        <div class="h-px w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent mb-8"></div>
+
+        <p class="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-10 max-w-lg mx-auto">
+            The trajectory you are looking for does not exist in this sector. 
+            <span class="block mt-2 text-gray-500 text-sm font-mono tracking-widest uppercase">Error Code: Ocular_Void_Null</span>
+        </p>
+        
+        <a href="index.html" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-medium text-lg rounded-none hover:bg-white hover:text-black transition-all duration-300 overflow-hidden">
+            <span class="relative z-10">Return to Mission Control</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            
+            <!-- Button Hover Background -->
+            <div class="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+        </a>
+    </div>
+
+</body>
+</html>
