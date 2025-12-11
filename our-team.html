@@ -365,6 +365,13 @@
     <script>
         // 1. Handle Page Visibility
         window.addEventListener('pageshow', (event) => {
+            // FIX: Ensure mobile menu is hidden when returning to page
+            // This prevents the menu from popping up if the browser restored the state
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+
             setTimeout(() => {
                 document.body.classList.add('page-loaded');
             }, 50);

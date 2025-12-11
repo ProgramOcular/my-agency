@@ -469,6 +469,21 @@
                 });
             });
         });
+
+        // 5. Fix for Back Button / Page Restoration
+        window.addEventListener('pageshow', (event) => {
+            // Ensure page is visible
+            if (!document.body.classList.contains('page-loaded')) {
+                document.body.classList.add('page-loaded');
+            }
+            
+            // Ensure mobile menu is closed upon return
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && mobileMenu.classList.contains('menu-active')) {
+                mobileMenu.classList.remove('menu-active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>

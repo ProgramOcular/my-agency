@@ -489,6 +489,10 @@
     <script>
         // 1. Handle Page Visibility (Works for Back Button & Fresh Loads)
         window.addEventListener('pageshow', (event) => {
+            // FIX: Force menu closed immediately upon page show
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenu) mobileMenu.classList.add('hidden');
+
             // Add the class to fade in, even if coming from browser cache
             setTimeout(() => {
                 document.body.classList.add('page-loaded');
