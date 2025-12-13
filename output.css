@@ -4834,5 +4834,12 @@ video {
     .dark\:lg\:hover\:\[paint-order\:markers\]:hover {
       paint-order: markers;
     }
+
+.bg-accent {
+    background-color: #CCFF00 !important;
+}
+.text-accent {
+    color: #CCFF00 !important;
+}
   }
 }

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Note: You can move your custom CSS from the HTML <style> tags 
+   into here if you want to clean up your HTML file further.
+   
+   Example:
+   @layer utilities {
+     .glass-panel {
+        background: rgba(18, 18, 18, 0.6);
+        ...
+     }
+   }
+*/
