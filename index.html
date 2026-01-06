@@ -43,9 +43,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="IZG0BXJm0fneSTqR1HLolw" async></script>
 
     <!-- FAVICONS -->
-    <link rel="icon" href="https://programocular.com/assets/favicon.png?v=3" type="image/png">
-    <link rel="icon" sizes="192x192" href="https://programocular.com/assets/favicon.png?v=3" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://programocular.com/assets/favicon.png?v=3">
+    <!-- Standard favicon for browsers -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="/assets/favicon-192x192.png">
+    <meta name="msapplication-TileColor" content="#050505">
 
     <!-- STRUCTURED DATA (JSON-LD) -->
     <script type="application/ld+json">
@@ -172,7 +181,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ... existing styles ... */
 
         /* PERFORMANCE BOOST: Skip rendering off-screen content */
-        #processs, #work, #contact, footer {
+        #process, #work, #contact, footer {
             content-visibility: auto;
             contain-intrinsic-size: 800px; /* Estimated height to prevent scrollbar jumping */
         }
@@ -249,21 +258,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 Next Horizon.
             </h1>
             <p class="text-lg md:text-xl text-text-muted max-w-2xl mx-auto font-light leading-relaxed mb-12">
-                We build high-performance websites and brand identities for various companies around the world.
+                We build high-performance websites and brand identities for the world's most ambitious companies.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="services.html" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition duration-300">
-                    Services
+                    Explore Services
                 </a>
                 <a href="contact-us.html" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition duration-300 backdrop-blur-sm">
-                    Contact Us
+                    Start a Project
                 </a>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <!-- Scroll Indicator - Fixed centering with w-full + justify-center -->
+        <div class="absolute bottom-12 w-full flex justify-center animate-bounce z-10 pointer-events-none">
             <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
     </section>
@@ -294,12 +303,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <!-- Stat Card 2 -->
                     <div class="p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-200">
                         <div class="text-4xl font-black text-white mb-2">99%</div>
-                        <div class="text-xs uppercase tracking-widest text-text-muted">Client Retention Rate</div>
+                        <div class="text-xs uppercase tracking-widest text-text-muted">Retention Rate</div>
                     </div>
                     <!-- Stat Card 3 -->
                     <div class="col-span-2 p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-300">
                         <div class="text-4xl font-black text-white mb-2">100+</div>
-                        <div class="text-xs uppercase tracking-widest text-text-muted">DESIGN PROJECTS DEVELOPED</div>
+                        <div class="text-xs uppercase tracking-widest text-text-muted">PROJECTS DEVELOPED</div>
                     </div>
                 </div>
             </div>
@@ -355,7 +364,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Process -->
-    <section id="processs" class="py-32 bg-surface relative overflow-hidden">
+    <section id="process" class="py-32 bg-surface relative overflow-hidden">
         <!-- Decorative elements -->
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         
@@ -523,7 +532,7 @@ Checking consistency, usability and brand <br> alignment
                     <span class="text-[10px] font-mono text-green-500 tracking-widest uppercase">Mission Success Rate: 98%</span>
                 </div>
                 <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-white mb-4 reveal-on-scroll delay-100">Client Debriefs</h2>
-                <p class="text-text-muted text-lg max-w-2xl mx-auto reveal-on-scroll delay-200">Post-operation analysis from our clients and partners.</p>
+                <p class="text-text-muted text-lg max-w-2xl mx-auto reveal-on-scroll delay-200">Post-operation analysis from our partners.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -618,7 +627,7 @@ Checking consistency, usability and brand <br> alignment
                     <div>
                         <label class="sr-only" for="email">Email Address</label>
                         <!-- Added 'required' to ensure they don't submit empty -->
-                        <input type="email" id="email" name="email" placeholder="enter your email" required class="w-full bg-surface border border-white/10 rounded-lg px-6 py-4 text-white placeholder-text-muted focus:outline-none focus:border-white transition duration-300">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required class="w-full bg-surface border border-white/10 rounded-lg px-6 py-4 text-white placeholder-text-muted focus:outline-none focus:border-white transition duration-300">
                     </div>
                     
                     <!-- CHANGED: type="submit" makes the button work -->

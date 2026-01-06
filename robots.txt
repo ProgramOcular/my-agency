@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://programocular.com/sitemap.xml
+
+# Block dashboard and login pages from search engines
+User-agent: *
+Disallow: /dashboard.html
+Disallow: /login.html
+
+# Allow crawling of assets
+Allow: /assets/

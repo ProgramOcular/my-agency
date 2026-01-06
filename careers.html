@@ -2,43 +2,50 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Mission — Ocular</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.png">
-   <link href="output.css" rel="stylesheet">
+    <!-- Using Tailwind CDN for immediate preview capability -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
-        <style>body { background-color: #050505; color: #F3F3F3; }</style>
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #F3F3F3; 
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 <body class="antialiased">
     
     <!-- Simplified Nav for this page -->
-    <nav class="w-full py-8 px-6 border-b border-white/5 flex justify-between">
-        <a href="index.html" class="font-black text-xl">OCULAR.</a>
-        <a href="index.html" class="text-xs font-mono text-gray-500 hover:text-white">RETURN TO BASE</a>
+    <nav class="w-full py-6 px-4 md:py-8 md:px-6 border-b border-white/5 flex justify-between items-center">
+        <a href="index.html" class="font-black text-lg md:text-xl tracking-tight">OCULAR.</a>
+        <a href="index.html" class="text-[10px] md:text-xs font-mono text-gray-500 hover:text-white transition-colors">RETURN TO BASE</a>
     </nav>
 
-    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <span class="text-green-500 font-mono text-xs mb-4 block">● RECRUITMENT CHANNELS OPEN</span>
-        <h1 class="text-5xl md:text-7xl font-black mb-8">Join the Mission.</h1>
-        <p class="text-xl text-gray-400 mb-12">We are always looking for visionaries to help build brands for the future.</p>
+    <section class="py-16 px-4 md:py-20 md:px-6 max-w-4xl mx-auto text-center">
+        <span class="text-green-500 font-mono text-[10px] md:text-xs mb-4 block tracking-wider">● RECRUITMENT CHANNELS OPEN</span>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 tracking-tight leading-tight">Join the Mission.</h1>
+        <p class="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">We are always looking for visionaries to help build brands for the future.</p>
     </section>
 
-    <section class="pb-32 px-6 max-w-4xl mx-auto space-y-4">
+    <section class="pb-24 px-4 md:pb-32 md:px-6 max-w-4xl mx-auto space-y-4">
         <!-- Job 1 -->
-        <div class="p-8 border border-white/10 rounded-xl flex justify-between items-center hover:bg-white/5 transition group">
+        <div class="p-6 md:p-8 border border-white/10 rounded-xl flex flex-col md:flex-row md:justify-between md:items-center hover:bg-white/5 transition group gap-4 md:gap-0">
             <div>
-                <h3 class="text-xl font-bold">Senior UI Designer</h3>
-                <p class="text-xs font-mono text-gray-500 mt-1">REMOTE // FULL-TIME</p>
+                <h3 class="text-lg md:text-xl font-bold">Senior UI Designer</h3>
+                <p class="text-[10px] md:text-xs font-mono text-gray-500 mt-1 tracking-wide">REMOTE // FULL-TIME</p>
             </div>
-            <a href="mailto:julien@programocular.com" class="text-sm font-bold border-b border-white/30 pb-1 group-hover:border-white">APPLY →</a>
+            <a href="mailto:julien@programocular.com" class="text-sm font-bold border-b border-white/30 pb-1 group-hover:border-white self-start md:self-auto transition-colors">APPLY →</a>
         </div>
         
         <!-- Job 2 -->
-        <div class="p-8 border border-white/10 rounded-xl flex justify-between items-center hover:bg-white/5 transition group">
+        <div class="p-6 md:p-8 border border-white/10 rounded-xl flex flex-col md:flex-row md:justify-between md:items-center hover:bg-white/5 transition group gap-4 md:gap-0">
             <div>
-                <h3 class="text-xl font-bold">Graphic Designer</h3>
-                <p class="text-xs font-mono text-gray-500 mt-1">OTTAWA // HYBRID</p>
+                <h3 class="text-lg md:text-xl font-bold">Graphic Designer</h3>
+                <p class="text-[10px] md:text-xs font-mono text-gray-500 mt-1 tracking-wide">OTTAWA // HYBRID</p>
             </div>
-            <a href="mailto:julien@programocular.com" class="text-sm font-bold border-b border-white/30 pb-1 group-hover:border-white">APPLY →</a>
+            <a href="mailto:julien@programocular.com" class="text-sm font-bold border-b border-white/30 pb-1 group-hover:border-white self-start md:self-auto transition-colors">APPLY →</a>
         </div>
     </section>
 
