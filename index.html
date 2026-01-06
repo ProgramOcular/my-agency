@@ -56,25 +56,149 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="msapplication-TileImage" content="/assets/favicon-192x192.png">
     <meta name="msapplication-TileColor" content="#050505">
 
-    <!-- STRUCTURED DATA (JSON-LD) -->
+    <!-- STRUCTURED DATA (JSON-LD) - ENHANCED -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "DesignAgency",
-      "name": "Ocular",
+      "@type": "ProfessionalService",
+      "name": "Ocular Design Agency",
+      "alternateName": "Program Ocular",
       "url": "https://programocular.com",
-      "logo": "https://programocular.com/assets/favicon.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://programocular.com/assets/ocular.png",
+        "width": "512",
+        "height": "512"
+      },
+      "image": "https://programocular.com/assets/ocular.png",
+      "description": "Visionary design agency specializing in high-end branding, UI/UX design, web design, and immersive digital experiences for the next generation of industry leaders.",
+      "founder": {
+        "@type": "Person",
+        "name": "Julien",
+        "jobTitle": "Founder & Creative Director"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CA",
+        "addressRegion": "ON"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "addressCountry": "CA"
+      },
+      "email": "julien@programocular.com",
+      "telephone": "+1-613-808-7357",
+      "priceRange": "$$$",
+      "areaServed": {
+        "@type": "GeoShape",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "Brand Design",
+        "Brand Strategy",
+        "UI/UX Design",
+        "Web Design",
+        "Digital Branding",
+        "Corporate Identity Design",
+        "Visual Identity",
+        "Motion Design"
+      ],
+      "knowsAbout": [
+        "User Experience Design",
+        "User Interface Design",
+        "Brand Identity",
+        "Digital Marketing",
+        "Web Development",
+        "Graphic Design"
+      ],
       "sameAs": [
         "https://x.com/programocular",
         "https://www.linkedin.com/company/programocular",
         "https://instagram.com/programocular"
       ],
-      "description": "Ocular is a visionary design agency specializing in high-end branding, UI/UX, and immersive digital experiences.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "CA"
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "60",
+        "bestRating": "5",
+        "worstRating": "1"
       },
-      "priceRange": "$$$"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Design Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Brand Design",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Complete Brand Identity",
+                  "description": "Logo design, brand guidelines, visual identity system"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Web Design",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website Design & Development",
+                  "description": "Custom website design and development with modern UI/UX"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- BREADCRUMB STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://programocular.com/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- ORGANIZATION STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ocular",
+      "legalName": "Program Ocular",
+      "url": "https://programocular.com",
+      "logo": "https://programocular.com/assets/ocular.png",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-613-808-7357",
+        "contactType": "customer service",
+        "email": "julien@programocular.com",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English"]
+      },
+      "sameAs": [
+        "https://x.com/programocular",
+        "https://www.linkedin.com/company/programocular",
+        "https://instagram.com/programocular"
+      ]
     }
     </script>
 
