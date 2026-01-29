@@ -250,16 +250,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
 /* LOGO SLIDER ANIMATION */
+        /* Changed to translate3d to force hardware acceleration and avoid sub-pixel jitter */
         @keyframes scrollRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
         }
         
         .logo-track {
             display: flex;
             width: max-content;
-            animation: scrollRight 40s linear infinite; /* Adjust '40s' to make it faster/slower */
-            will-change: transform; /* FIX: Prevents jitter by keeping element promoted to GPU layer */
+            animation: scrollRight 40s linear infinite;
+            will-change: transform;
+            
+            /* STABILITY HACKS: Forces the browser to treat this as a stable 3D layer */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            perspective: 1000px;
         }
         
         /* Pause animation on hover to allow clicking */
@@ -445,48 +452,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Fade edges -->
      <div class="logo-track space-x-16 md:space-x-24 pr-16 md:pr-24 flex items-center">
     
-    <!-- SEO TWEAK: Added width/height to images to prevent Cumulative Layout Shift (CLS) and loading="lazy" -->
+    <!-- SEO TWEAK: Changed loading="lazy" to loading="eager" to prevent animation stutter on load/interaction -->
     <!-- Wrapped in <a> tags for clickability. Opacity transition moved to <a> for smoother interaction. -->
     
     <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="premier-parks.png" width="120" height="40" loading="lazy" alt="Premier Parks Logo" decoding="async"
+        <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async"
              class="h-6 md:h-8 w-auto brightness-0 invert">
     </a>
 
     <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="canada.png" width="120" height="40" loading="lazy" alt="Government of Canada Logo" decoding="async"
+        <img src="canada.png" width="120" height="40" loading="eager" alt="Government of Canada Logo" decoding="async"
              class="h-8 md:h-10 w-auto brightness-0 invert">
     </a>
 
     <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="oxaro.png" width="120" height="40" loading="lazy" alt="Oxaro Logo" decoding="async"
+        <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async"
              class="h-6 md:h-8 w-auto brightness-0 invert">
     </a>
 
     <a href="https://shop.lululemon.com/en-ca/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="lulu.png" width="120" height="40" loading="lazy" alt="Lululemon Logo" decoding="async"
+        <img src="lulu.png" width="120" height="40" loading="eager" alt="Lululemon Logo" decoding="async"
              class="h-8 md:h-8 w-auto brightness-0 invert">
     </a>
 
 
     <!-- Duplicates for marquee -->
     <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="premier-parks.png" width="120" height="40" loading="lazy" alt="Premier Parks Logo" decoding="async"
+        <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async"
              class="h-6 md:h-8 w-auto brightness-0 invert">
     </a>
 
     <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="canada.png" width="120" height="40" loading="lazy" alt="Governement of Canada Logo" decoding="async"
+        <img src="canada.png" width="120" height="40" loading="eager" alt="Governement of Canada Logo" decoding="async"
              class="h-8 md:h-10 w-auto brightness-0 invert">
     </a>
 
     <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="oxaro.png" width="120" height="40" loading="lazy" alt="Oxaro Logo" decoding="async"
+        <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async"
              class="h-6 md:h-8 w-auto brightness-0 invert">
     </a>
 
     <a href="https://shop.lululemon.com/en-ca/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="lulu.png" width="120" height="40" loading="lazy" alt="Lululemon Client Logo" decoding="async"
+        <img src="lulu.png" width="120" height="40" loading="eager" alt="Lululemon Client Logo" decoding="async"
              class="h-8 md:h-8 w-auto brightness-0 invert">
     </a>
 
