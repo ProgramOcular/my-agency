@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="description" content="Ocular is a visionary design agency specializing in high-end branding, UI/UX, and immersive digital experiences for the next generation of industry leaders.">
     <!-- Google largely ignores "keywords" now, but it doesn't hurt to keep for other engines -->
     <meta name="keywords" content="Program Ocular, ProgramOcular, Ocular, Branding Agency, Design Agency, UI/UX Design, Branding Strategy, Web Design, Ocular, Aerospace Design, Digital Experience, Corporate Identity">
-    <meta name="author" content=Program Ocular">
+    <meta name="author" content="Program Ocular">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://programocular.com/">
     <meta name="google-site-verification" content="q3ZeyLAo0qKth6OCvRt56xD0LYLUMIQX06LaFd2sOQ" />
@@ -198,8 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
 
     <!-- STYLES & SCRIPTS -->
-    <!-- UPDATED: Replaced CDN/Inline Script with compiled CSS -->
- <link href="output.css" rel="stylesheet">
+    <link href="output.css" rel="stylesheet">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,17 +248,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             z-index: 0;
         }
 
-/* LOGO SLIDER ANIMATION */
-        /* Changed to translate3d to force hardware acceleration and avoid sub-pixel jitter */
-        @keyframes scrollRight {
-            0% { transform: translate3d(-50%, 0, 0); }
-            100% { transform: translate3d(0, 0, 0); }
+        /* LOGO SLIDER ANIMATION */
+        /* Smooth infinite scroll - moves left */
+        @keyframes scrollLeft {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
         
         .logo-track {
             display: flex;
             width: max-content;
-            animation: scrollRight 40s linear infinite;
+            /* Increased time to 80s because the track is now longer (4 sets of logos) */
+            animation: scrollLeft 80s linear infinite;
             will-change: transform;
             
             /* STABILITY HACKS: Forces the browser to treat this as a stable 3D layer */
@@ -294,23 +294,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-    </style>
-
-<style>
-    /* ... keep your existing styles ... */
-
-    /* SLEEK PAGE TRANSITION SETTINGS */
-    body {
-        opacity: 0; /* Start completely invisible */
-        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth ease curve */
-    }
-    
-    /* This class is added by JS when the page is ready */
-    body.page-loaded {
-        opacity: 1;
-    }
-
-/* ... existing styles ... */
+        /* SLEEK PAGE TRANSITION SETTINGS */
+        body {
+            opacity: 0; /* Start completely invisible */
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth ease curve */
+        }
+        
+        /* This class is added by JS when the page is ready */
+        body.page-loaded {
+            opacity: 1;
+        }
 
         /* PERFORMANCE BOOST: Skip rendering off-screen content */
         #process, #work, #contact, footer {
@@ -318,7 +311,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             contain-intrinsic-size: 800px; /* Estimated height to prevent scrollbar jumping */
         }
    
-</style>
+    </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black">
 <!-- Google Tag Manager (noscript) -->
@@ -335,11 +328,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="index.html" class="hover:text-white transition-colors duration-300">Home</a>
                 <a href="services.html" class="hover:text-white transition-colors duration-300">Services</a>
                 <a href="our-team.html" class="hover:text-white transition-colors duration-300">Our Team</a>
-<a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
-<a href="login.html" class="hover:text-white transition-colors duration-300 flex items-center gap-2">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-    Login
-</a>
+                <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+                <a href="login.html" class="hover:text-white transition-colors duration-300 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Login
+                </a>
                 <a href="contact-us.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 font-semibold">Contact Us</a>
             </div>
 
@@ -363,15 +356,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </button>
 
             <a href="#home" class="text-2xl font-bold text-white" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
-                       <a href="services.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
-<a href="our-team.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Team</a>
-<a href="pricing.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
-<a href="login.html" class="text-2xl font-light flex items-center gap-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-<span>Client Login</span>
-
-
-</a>
+            <a href="services.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a href="our-team.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Team</a>
+            <a href="pricing.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
+            <a href="login.html" class="text-2xl font-light flex items-center gap-2" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <span>Client Login</span>
+            </a>
             <a href="contact-us.html" class="text-2xl font-light" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact Us</a>
         </div>
     </nav>
@@ -447,47 +438,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-<!-- NEW: Animated Logo Slider (Left to Right) -->
+    <!-- NEW: Animated Logo Slider (Left to Right) -->
     <section class="py-12 border-b border-white/5 overflow-hidden relative">
-        <!-- Fade edges -->
-     <div class="logo-track space-x-16 md:space-x-24 pr-16 md:pr-24 flex items-center">
-    
-    <!-- SEO TWEAK: Changed loading="lazy" to loading="eager" to prevent animation stutter on load/interaction -->
-    <!-- Wrapped in <a> tags for clickability. Opacity transition moved to <a> for smoother interaction. -->
-    
-    <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async"
-             class="h-6 md:h-8 w-auto brightness-0 invert">
-    </a>
+        <!-- The logo track uses space-x for gaps. Note: We use 4 sets of logos to ensure infinite scroll loop works on large screens without gaps -->
+        <div class="logo-track space-x-16 md:space-x-24 pr-16 md:pr-24 flex items-center">
+            
+            <!-- SET 1 -->
+            <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
+            <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="canada.png" width="120" height="40" loading="eager" alt="Government of Canada Logo" decoding="async" class="h-8 md:h-10 w-auto brightness-0 invert">
+            </a>
+            <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
 
-    <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="canada.png" width="120" height="40" loading="eager" alt="Government of Canada Logo" decoding="async"
-             class="h-8 md:h-10 w-auto brightness-0 invert">
-    </a>
+            <!-- SET 2 -->
+            <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
+            <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="canada.png" width="120" height="40" loading="eager" alt="Government of Canada Logo" decoding="async" class="h-8 md:h-10 w-auto brightness-0 invert">
+            </a>
+            <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
 
-    <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async"
-             class="h-6 md:h-8 w-auto brightness-0 invert">
-    </a>
+            <!-- SET 3 (Duplicate for Loop) -->
+            <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
+            <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="canada.png" width="120" height="40" loading="eager" alt="Government of Canada Logo" decoding="async" class="h-8 md:h-10 w-auto brightness-0 invert">
+            </a>
+            <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
 
+            <!-- SET 4 (Duplicate for Loop - Safety Buffer) -->
+            <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
+            <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="canada.png" width="120" height="40" loading="eager" alt="Government of Canada Logo" decoding="async" class="h-8 md:h-10 w-auto brightness-0 invert">
+            </a>
+            <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
+                <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async" class="h-6 md:h-8 w-auto brightness-0 invert">
+            </a>
 
-    <!-- Duplicates for marquee -->
-    <a href="https://premierparks.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="premier-parks.png" width="120" height="40" loading="eager" alt="Premier Parks Logo" decoding="async"
-             class="h-6 md:h-8 w-auto brightness-0 invert">
-    </a>
-
-    <a href="https://www.canada.ca/en.html" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="canada.png" width="120" height="40" loading="eager" alt="Governement of Canada Logo" decoding="async"
-             class="h-8 md:h-10 w-auto brightness-0 invert">
-    </a>
-
-    <a href="https://oxaro.com/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-100 transition-opacity duration-300">
-        <img src="oxaro.png" width="120" height="40" loading="eager" alt="Oxaro Logo" decoding="async"
-             class="h-6 md:h-8 w-auto brightness-0 invert">
-    </a>
-
-</div>
+        </div>
     </section>
 
 
