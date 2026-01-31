@@ -420,17 +420,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Stat Card 1 -->
                     <div class="p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-100">
-                        <div class="text-4xl font-black text-white mb-2">60+</div>
+                        <!-- ANIMATION ADDED: count-up class and data attributes -->
+                        <div class="text-4xl font-black text-white mb-2 count-up" data-target="60" data-suffix="+">0</div>
                         <div class="text-xs uppercase tracking-widest text-text-muted">Global Partners</div>
                     </div>
                     <!-- Stat Card 2 -->
                     <div class="p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-200">
-                        <div class="text-4xl font-black text-white mb-2">99%</div>
+                        <!-- ANIMATION ADDED: count-up class and data attributes -->
+                        <div class="text-4xl font-black text-white mb-2 count-up" data-target="99" data-suffix="%">0</div>
                         <div class="text-xs uppercase tracking-widest text-text-muted">Retention Rate</div>
                     </div>
                     <!-- Stat Card 3 -->
                     <div class="col-span-2 p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-300">
-                        <div class="text-4xl font-black text-white mb-2">100+</div>
+                        <!-- ANIMATION ADDED: count-up class and data attributes -->
+                        <div class="text-4xl font-black text-white mb-2 count-up" data-target="100" data-suffix="+">0</div>
                         <div class="text-xs uppercase tracking-widest text-text-muted">PROJECTS DEVELOPED</div>
                     </div>
                 </div>
@@ -1012,6 +1015,44 @@ Checking consistency, usability and brand <br> alignment
         // Target all elements with the reveal-on-scroll class
         document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
             observer.observe(element);
+        });
+    </script>
+
+    <!-- NEW: Animated Count-Up Statistics Script -->
+    <script>
+        // Function to animate counting
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 2000; // 2 seconds
+            const stepTime = 20; // update every 20ms
+            const steps = duration / stepTime;
+            const increment = target / steps;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    el.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.ceil(current) + suffix;
+                }
+            }, stepTime);
+        }
+
+        // Specific Observer for counters
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% visible
+
+        document.querySelectorAll('.count-up').forEach(el => {
+            counterObserver.observe(el);
         });
     </script>
 
