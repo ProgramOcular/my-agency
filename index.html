@@ -246,6 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
             pointer-events: none;
             z-index: 0;
+            transition: transform 0.1s ease-out; /* Added for smoother parallax */
         }
 
         /* LOGO SLIDER ANIMATION */
@@ -310,6 +311,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             content-visibility: auto;
             contain-intrinsic-size: 800px; /* Estimated height to prevent scrollbar jumping */
         }
+
+        /* --- SPOTLIGHT CARD EFFECT --- */
+        .spotlight-card {
+            position: relative;
+            /* Ensure the border radius of the card is respected */
+        }
+
+        /* The glowing border container */
+        .spotlight-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit; /* Matches card's rounded corners */
+            padding: 1.5px; /* Width of the spotlight border */
+            
+            /* The spotlight gradient */
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+                rgba(255, 255, 255, 0.5), /* Spotlight Color */
+                transparent 40%
+            );
+            
+            /* Masking magic: Shows background only in the padding area (border) */
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 10; /* Sits on top of content to ensure visibility */
+        }
+
+        .spotlight-card:hover::after {
+            opacity: 1;
+        }
    
     </style>
 </head>
@@ -372,7 +411,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="bg-grid absolute inset-0 z-0"></div>
         <div class="glow-point top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse-slow"></div>
 
-        <div class="relative z-10 max-w-5xl mx-auto animate-fade-in-up">
+        <div id="hero-content" class="relative z-10 max-w-5xl mx-auto animate-fade-in-up transition-transform duration-100 ease-out will-change-transform">
             <div class="inline-block mb-6 px-3 py-1 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
                 <span class="text-xs font-mono tracking-widest uppercase text-text-muted">System Version 2.0</span>
             </div>
@@ -419,17 +458,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Stat Card 1 -->
-                    <div class="p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-100">
+                    <div class="spotlight-card p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-100">
                         <div class="text-4xl font-black text-white mb-2">60+</div>
                         <div class="text-xs uppercase tracking-widest text-text-muted">Global Partners</div>
                     </div>
                     <!-- Stat Card 2 -->
-                    <div class="p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-200">
+                    <div class="spotlight-card p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-200">
                         <div class="text-4xl font-black text-white mb-2">99%</div>
                         <div class="text-xs uppercase tracking-widest text-text-muted">Retention Rate</div>
                     </div>
                     <!-- Stat Card 3 -->
-                    <div class="col-span-2 p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-300">
+                    <div class="spotlight-card col-span-2 p-8 bg-surface rounded-2xl border border-white/5 hover:border-white/20 transition-colors duration-500 reveal-on-scroll delay-300">
                         <div class="text-4xl font-black text-white mb-2">100+</div>
                         <div class="text-xs uppercase tracking-widest text-text-muted">PROJECTS DEVELOPED</div>
                     </div>
@@ -504,7 +543,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
                 <!-- Service 1 -->
-                <div class="bg-surface p-10 hover:bg-surface-highlight transition duration-300 group reveal-on-scroll delay-100">
+                <div class="spotlight-card bg-surface p-10 hover:bg-surface-highlight transition duration-300 group reveal-on-scroll delay-100">
                     <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-black transition duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
@@ -536,7 +575,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-surface p-10 hover:bg-surface-highlight transition duration-300 group reveal-on-scroll delay-200">
+                <div class="spotlight-card bg-surface p-10 hover:bg-surface-highlight transition duration-300 group reveal-on-scroll delay-200">
                     <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-black transition duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
@@ -568,7 +607,7 @@ Visualizing ideas before full execution
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-surface p-10 hover:bg-surface-highlight transition duration-300 group reveal-on-scroll delay-300">
+                <div class="spotlight-card bg-surface p-10 hover:bg-surface-highlight transition duration-300 group reveal-on-scroll delay-300">
                     <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-black transition duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
@@ -617,9 +656,9 @@ Checking consistency, usability and brand <br> alignment
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Project 1 -->
                     <div class="group cursor-pointer reveal-on-scroll delay-100">
-                        <div class="aspect-video bg-surface-highlight rounded-xl overflow-hidden relative mb-6 border border-white/5">
+                        <div class="spotlight-card aspect-video bg-surface-highlight rounded-xl overflow-hidden relative mb-6 border border-white/5">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <div class="absolute bottom-0 left-0 p-8 w-full z-10">
                                 <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-2 block">UI/UX</span>
                                 <h3 class="text-2xl font-bold">Project 1</h3>
                             </div>
@@ -633,9 +672,9 @@ Checking consistency, usability and brand <br> alignment
 
                     <!-- Project 2 -->
                     <div class="group cursor-pointer reveal-on-scroll delay-200">
-                        <div class="aspect-video bg-surface-highlight rounded-xl overflow-hidden relative mb-6 border border-white/5">
+                        <div class="spotlight-card aspect-video bg-surface-highlight rounded-xl overflow-hidden relative mb-6 border border-white/5">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
-                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <div class="absolute bottom-0 left-0 p-8 w-full z-10">
                                 <span class="text-xs font-mono uppercase tracking-widest text-white/60 mb-2 block">Social Media</span>
                                 <h3 class="text-2xl font-bold">Project 2</h3>
                             </div>
@@ -664,7 +703,7 @@ Checking consistency, usability and brand <br> alignment
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-[#0A0A0A] p-8 rounded-2xl border border-white/10 hover:border-white/30 transition duration-500 reveal-on-scroll delay-100">
+                <div class="spotlight-card bg-[#0A0A0A] p-8 rounded-2xl border border-white/10 hover:border-white/30 transition duration-500 reveal-on-scroll delay-100">
                     <div class="flex items-center gap-1 mb-6 text-white">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -690,7 +729,7 @@ Checking consistency, usability and brand <br> alignment
                 </div>
 
                 <!-- Review 2 -->
-                <div class="bg-[#0A0A0A] p-8 rounded-2xl border border-white/10 hover:border-white/30 transition duration-500 reveal-on-scroll delay-200">
+                <div class="spotlight-card bg-[#0A0A0A] p-8 rounded-2xl border border-white/10 hover:border-white/30 transition duration-500 reveal-on-scroll delay-200">
                     <div class="flex items-center gap-1 mb-6">
                         <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -716,7 +755,7 @@ Checking consistency, usability and brand <br> alignment
                 </div>
 
                 <!-- Review 3 (Hidden on mobile, visible on desktop) -->
-                <div class="hidden md:block bg-[#0A0A0A] p-8 rounded-2xl border border-white/10 hover:border-white/30 transition duration-500 reveal-on-scroll delay-300">
+                <div class="spotlight-card hidden md:block bg-[#0A0A0A] p-8 rounded-2xl border border-white/10 hover:border-white/30 transition duration-500 reveal-on-scroll delay-300">
                     <!-- ... stars ... -->
                     <div class="flex items-center gap-1 mb-6 text-white">
                        <!-- Stars -->
@@ -1013,6 +1052,54 @@ Checking consistency, usability and brand <br> alignment
         document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
             observer.observe(element);
         });
+    </script>
+
+<!-- SPOTLIGHT & PARALLAX SCRIPT -->
+    <script>
+        // --- SPOTLIGHT EFFECT LOGIC ---
+        // We select all cards with the spotlight class
+        const spotlightCards = document.querySelectorAll('.spotlight-card');
+
+        spotlightCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Set CSS variables for the specific card
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // --- SUBTLE HERO PARALLAX LOGIC ---
+        const heroSection = document.getElementById('home');
+        const heroContent = document.getElementById('hero-content');
+        const glowPoint = heroSection.querySelector('.glow-point');
+
+        if(heroSection && heroContent && glowPoint) {
+            heroSection.addEventListener('mousemove', (e) => {
+                // Calculate position relative to center of screen (-0.5 to 0.5)
+                const xPos = (e.clientX / window.innerWidth) - 0.5;
+                const yPos = (e.clientY / window.innerHeight) - 0.5;
+
+                // Move content slightly (15px max)
+                heroContent.style.transform = `translate(${xPos * 15}px, ${yPos * 15}px)`;
+                
+                // Move glow point more (40px max) in opposite direction for depth
+                // Note: We keep the initial translate-x/y-1/2 from CSS logic by using percentage in CSS and adding px here,
+                // or we just use margin. The cleanest way is to use the existing transform logic + add translate.
+                // Since glowPoint uses Tailwind transform utilities, we can manipulate margin or add a wrapper.
+                // Simpler approach: update transform directly ensuring we keep centering.
+                glowPoint.style.transform = `translate(-50%, -50%) translate(${xPos * -40}px, ${yPos * -40}px)`;
+            });
+            
+            // Reset on mouse leave
+            heroSection.addEventListener('mouseleave', () => {
+                heroContent.style.transform = 'translate(0, 0)';
+                glowPoint.style.transform = 'translate(-50%, -50%)';
+            });
+        }
     </script>
 
 </body>
